@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: '20'
 
-      - run: npm install
-      - run: npm run build -- --outDir _site
+      - run: yarn install
+      - run: yarn build --outDir _site
         env:
           DEMO_PREFIX: ${{ vars.DEMO_PREFIX }}
           NODE_ENV: ${{ vars.NODE_ENV }}
