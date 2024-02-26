@@ -12,6 +12,15 @@ function getBase() {
   return "/";
 }
 
+if (NODE_ENV === "demo" && !DEMO_PREFIX) {
+  throw new Error("DEMO_PREFIX is required when NODE_ENV is demo");
+}
+
+if (NODE_ENV === "demo") {
+  process.env.VITE_MODE = "demo";
+  process.env.VITE_DEMO_PREFIX = DEMO_PREFIX;
+}
+
 export default defineConfig({
   base: getBase(),
   plugins: [tsconfigPaths(), react()],
