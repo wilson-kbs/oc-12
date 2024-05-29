@@ -1,0 +1,20 @@
+{
+  "links": {
+    "home": {
+      "href": "/",
+      "title": "Accueil"
+    },
+    "profile": {
+      "href": "/profile",
+      "title": "Profil"
+    },
+    "settings": {
+      "href": "/settings",
+      "title": "Paramètres"
+    },
+    "community": {
+      "href": "/community",
+      "title": "Communauté"
+    }
+  }
+}

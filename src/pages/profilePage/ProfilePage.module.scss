@@ -1,0 +1,69 @@
+.PageWrapper {
+  height: 100%;
+  display: flex;
+}
+
+.SideNav {
+  width: 11rem;
+}
+
+.PageContent {
+  display: flex;
+  flex-direction: column;
+  padding: 10rem 15rem;
+  flex: 1;
+}
+
+.Header {
+  //padding: 5rem 2rem;
+  padding-bottom: 7rem;
+  width: 100%;
+  height: 15rem;
+
+  .Header_title {
+    font-size: 4.8rem;
+    font-weight: 600;
+    padding-bottom: 2rem;
+
+    .username {
+      color: red;
+    }
+  }
+
+  .Header_description {
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+}
+
+.Dashboard {
+  display: flex;
+  gap: 5rem;
+  width: 100%;
+}
+
+.LeftColumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .Dashboard_Activity {
+    width: 100%;
+    height: 32rem;
+  }
+
+  .Dashboard_Cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    justify-content: space-between;
+    padding-top: 5rem;
+  }
+}
+
+.RightColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}

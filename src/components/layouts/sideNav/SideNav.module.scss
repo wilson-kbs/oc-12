@@ -1,0 +1,55 @@
+.Component {
+  position: relative;
+  background-color: black;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2rem 10rem;
+  gap: 1.5rem;
+}
+
+.NavItem {
+  //width: 6.4rem;
+  //  height: 6.4rem;
+  background-color: white;
+  border-radius: 5px;
+
+  & > img {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+}
+
+.Footer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25rem;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.Copyright {
+  display: inline-flex;
+}
+
+.Copyright::after {
+  content: "Copyright, SportSee 2020";
+  font-size: 1.2rem;
+  color: white;
+  text-wrap: nowrap;
+  transform: rotate(-90deg);
+  height: fit-content;
+}

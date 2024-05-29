@@ -1,7 +1,7 @@
-import styles from "./DashboardLayout.module.scss";
+import styles from "./ProfileLayout.module.scss";
 import { Outlet } from "react-router-dom";
 
-function DashboardLayout() {
+function ProfileLayout() {
   return (
     <div className={styles.PageWrapper}>
       <Outlet />
@@ -9,4 +9,4 @@ function DashboardLayout() {
   );
 }
 
-export default DashboardLayout;
+export default ProfileLayout;

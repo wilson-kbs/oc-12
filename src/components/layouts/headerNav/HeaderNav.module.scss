@@ -1,0 +1,22 @@
+.Component {
+}
+
+.Component__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Component__item {
+
+}
+
+.Component__item_link {
+     color: #fff;
+    text-decoration: none;
+    font-size: 2.4rem;
+    font-weight: 500;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}

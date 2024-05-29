@@ -4,22 +4,6 @@
   flex-direction: column;
 }
 
-.PageWrapper__Header, .PageWrapper__Main {
-  max-width: 1240px + 200px;
-  margin: 0 auto;
-  padding: 0 100px;
-}
-
-.PageWrapper__Header {
-  flex-shrink: 0;
-}
-
 .PageWrapper__Main {
-  flex-grow: 1;
-  padding-bottom: 40px;
-}
-
-
-.PageWrapper__Footer {
-  flex-shrink: 0;
+  height: 100%;
 }
