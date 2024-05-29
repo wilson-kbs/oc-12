@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   readonly VITE_FAKE_DATA_URL: string;
   readonly VITE_MODE: string;
   readonly VITE_DEMO_PREFIX: string;
+  readonly VITE_API_URL: string;
 }
 
 interface ImportMeta {
