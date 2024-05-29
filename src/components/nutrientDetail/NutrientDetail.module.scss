@@ -1,0 +1,41 @@
+.Component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 3rem;
+  padding-right: 5rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: .6rem;
+}
+
+.Component__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  width: 6rem;
+  border-radius: .5rem;
+
+  &_img {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.Component__content {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  flex: 1;
+}
+
+.Component__value {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.Component__title {
+  font-size: 1.4rem;
+  color: #74798C;
+}

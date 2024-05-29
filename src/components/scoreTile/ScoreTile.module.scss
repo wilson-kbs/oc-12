@@ -1,0 +1,18 @@
+.Component {
+  //width: 260px;
+  //height: 260px;
+  aspect-ratio: 1 / 1;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.Component__wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}

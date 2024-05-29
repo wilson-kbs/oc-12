@@ -1,0 +1,11 @@
+.Component {
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ff0000;
+  aspect-ratio: 1 / 1;
+}
+
+.Component__content {
+  height: 100%;
+  width: 100%;
+}
