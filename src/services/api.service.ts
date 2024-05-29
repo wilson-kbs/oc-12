@@ -8,7 +8,7 @@ export class ApiService {
   }
 
   private static get apiUrl() {
-    return import.meta.env.VITE_API_URL;
+    return import.meta.env.VITE_API_URL || "";
   }
 
   private static async getFakeData(): Promise<Record<string, unknown>> {

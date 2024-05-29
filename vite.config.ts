@@ -19,6 +19,7 @@ if (NODE_ENV === "demo" && !DEMO_PREFIX) {
 if (NODE_ENV === "demo") {
   process.env.VITE_MODE = "demo";
   process.env.VITE_DEMO_PREFIX = DEMO_PREFIX;
+  process.env.VITE_FAKE_DATA_URL = `${DEMO_PREFIX}/preview/data.json`;
 }
 
 export default defineConfig({
