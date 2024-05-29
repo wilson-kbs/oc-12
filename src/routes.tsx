@@ -1,29 +1,29 @@
-import { createBrowserRouter, RouteObject } from "react-router-dom";
-import DashboardLayout from "src/layouts/dashboardLayout/DashboardLayout.tsx";
+import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
+
+import ProfileLayout from "src/layouts/profileLayout/ProfileLayout.tsx";
 import DefaultLayout from "src/layouts/defaultLayout/DefaultLayout.tsx";
+import ProfilePage, {
+  loader as profilePageLoader,
+} from "src/pages/profilePage/ProfilePage.tsx";
 
 const routes: RouteObject[] = [
   {
     element: <DefaultLayout />,
-    path: "/",
     children: [
       {
-        path: "",
-        element: <></>,
-      },
-      {
-        path: "dashboard",
-        element: <DashboardLayout />,
+        path: "/profile",
+        element: <ProfileLayout />,
         children: [
           {
             path: "",
-            element: <></>,
+            element: <ProfilePage />,
+            loader: profilePageLoader,
           },
         ],
       },
       {
         path: "*",
-        element: <></>,
+        element: <Navigate replace to="/profile" />,
       },
     ],
   },
