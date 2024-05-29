@@ -18,8 +18,8 @@ jobs:
       - run: yarn install
       - run: yarn build --outDir _site
         env:
-          DEMO_PREFIX: ${{ vars.DEMO_PREFIX }}
-          NODE_ENV: ${{ vars.NODE_ENV }}
+          DEMO_PREFIX: "/oc-12"
+          NODE_ENV: "demo"
 
       - name: Fix permissions
         run: |
