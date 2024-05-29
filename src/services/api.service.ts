@@ -16,7 +16,7 @@ export class ApiService {
       return this.fakeData;
     }
 
-    const response = await fetch("/preview/data.json");
+    const response = await fetch(import.meta.env.VITE_FAKE_DATA_URL);
     this.fakeData = await response.json();
     return this.fakeData as Record<string, unknown>;
   }
@@ -69,13 +69,5 @@ export class ApiService {
     }
 
     return await response.json();
-  }
-
-  public static async init() {
-    if (this.isPreview) {
-      const response = await fetch("/preview/data.json");
-      this.fakeData = await response.json();
-      console.log("Fake data loaded", this.fakeData);
-    }
   }
 }

@@ -22,6 +22,8 @@ if (NODE_ENV === "demo") {
   process.env.VITE_FAKE_DATA_URL = `${DEMO_PREFIX}/preview/data.json`;
 }
 
+process.env.VITE_APP_BASE_URL = getBase();
+
 export default defineConfig({
   base: getBase(),
   plugins: [tsconfigPaths(), react()],
