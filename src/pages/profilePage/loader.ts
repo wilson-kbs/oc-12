@@ -1,26 +1,32 @@
-import { LoaderFunction } from "@remix-run/router/utils.ts";
 import { ApiService } from "src/services/api.service.ts";
 import { NutrientType } from "src/components/nutrientDetail/NutrientDetail.type.ts";
 
 import { json } from "react-router-dom";
+import { IndexRouteObject } from "react-router/dist/lib/context";
 
-const mapDayLabel = {
-  "1": "L",
-  "2": "M",
-  "3": "M",
-  "4": "J",
-  "5": "V",
-  "6": "S",
-  "7": "D",
+const mapDayLabel: Record<number, string> = {
+  1: "L",
+  2: "M",
+  3: "M",
+  4: "J",
+  5: "V",
+  6: "S",
+  7: "D",
 };
 
-export const loader: LoaderFunction = async () => {
-  const userId = 12;
+export const loader: IndexRouteObject["loader"] = async () => {
+  const userId = 12; // TODO: get user id from session
   try {
-    const activity = await ApiService.getActivity(userId);
+    const activityData = await ApiService.getActivity(userId);
     const performanceData = await ApiService.getPerformance(userId);
     const sessionsData = await ApiService.getSessions(userId);
     const user = await ApiService.getUser(userId);
+
+    const activity = activityData.map((item) => ({
+      day: new Date(item.day),
+      kilogram: item.kilogram,
+      calories: item.calories,
+    }));
 
     const nutrients = Object.entries(user.keyData).map(([key, value]) => ({
       type: key.replace("Count", "").toLowerCase() as NutrientType,
@@ -50,6 +56,8 @@ export const loader: LoaderFunction = async () => {
 
     return json(data, { status: 200 });
   } catch (error) {
-    return json({ error: error.message }, { status: 500 });
+    if (error instanceof Error)
+      return json({ error: error.message }, { status: 500 });
+    else return json({ error: "An error occurred" }, { status: 500 });
   }
 };

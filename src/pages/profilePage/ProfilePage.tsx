@@ -9,14 +9,30 @@ import AverageSessions from "src/components/averageSessions/AverageSessions.tsx"
 import RadarTile from "src/components/radarTitle/RadarTile.tsx";
 import ActivityTile from "src/components/activityTile/ActivityTile.tsx";
 import ScoreTile from "src/components/scoreTile/ScoreTile.tsx";
-
-export { loader } from "./loader";
+import { User } from "src/types";
 
 function ProfilePage() {
-  const data = useLoaderData();
+  const data = useLoaderData() as {
+    error: unknown;
+    userInfo: User["userInfos"];
+    activity: Array<{ day: Date; kilogram: number; calories: number }>;
+    sessions: Array<{ day: string; time: number }>;
+    performance: Array<{
+      kind: string;
+      value: number;
+    }>;
+    score: number;
+    nutrients: Array<{ type: NutrientType; value: number }>;
+  };
 
   if (data.error) {
-    return <div>{data.error}</div>;
+    if (typeof data.error === "string") {
+      return <div>{data.error}</div>;
+    } else if (data.error instanceof Error) {
+      return <div>{data.error.message}</div>;
+    } else {
+      return <div>An error occurred</div>;
+    }
   }
 
   return (
@@ -61,5 +77,8 @@ function ProfilePage() {
     </div>
   );
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export { loader } from "./loader.ts";
 
 export default ProfilePage;
