@@ -26,13 +26,21 @@ function ProfilePage() {
   };
 
   if (data.error) {
-    if (typeof data.error === "string") {
-      return <div>{data.error}</div>;
-    } else if (data.error instanceof Error) {
-      return <div>{data.error.message}</div>;
-    } else {
-      return <div>An error occurred</div>;
-    }
+    const renderError = (data: { error: unknown }) => {
+      if (typeof data.error === "string") {
+        return <span>{data.error}</span>;
+      } else if (data.error instanceof Error) {
+        return <span>{data.error.message}</span>;
+      } else {
+        return <span>An error occurred</span>;
+      }
+    };
+
+    return (
+      <div className={styles.PageWrapper}>
+        <div className={styles.PageContent}>{renderError(data)}</div>
+      </div>
+    );
   }
 
   return (

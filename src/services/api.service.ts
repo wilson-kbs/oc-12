@@ -75,11 +75,19 @@ export class ApiService {
   }
 
   private static async fetch(url: string) {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data from the server");
+      }
 
-    return await response.json();
+      return await response.json();
+    } catch (error) {
+      if (error instanceof Error && error.message === "Failed to fetch") {
+        throw new Error("Failed to fetch data from the server");
+      }
+
+      throw error;
+    }
   }
 }
