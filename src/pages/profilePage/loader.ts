@@ -15,7 +15,10 @@ const mapDayLabel: Record<number, string> = {
 };
 
 export const loader: IndexRouteObject["loader"] = async () => {
-  const userId = 12; // TODO: get user id from session
+  const userId = Number(import.meta.env.VITE_USER_ID); // TODO: get user id from session
+
+  if (isNaN(userId)) return json({ error: "Invalid user id" }, { status: 400 });
+
   try {
     const activityData = await ApiService.getActivity(userId);
     const performanceData = await ApiService.getPerformance(userId);

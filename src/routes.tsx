@@ -30,5 +30,5 @@ const routes: RouteObject[] = [
 ];
 
 export const router = createBrowserRouter(routes, {
-  basename: import.meta.env.VITE_DEMO_PREFIX || "/",
+  basename: import.meta.env.VITE_PREFIX_PATH || "/",
 });

@@ -4,7 +4,7 @@ export class ApiService {
   private static fakeData?: Record<string, unknown>;
 
   private static get isPreview() {
-    return import.meta.env.VITE_MODE === "demo";
+    return import.meta.env.MODE === "preview";
   }
 
   private static get apiUrl() {
