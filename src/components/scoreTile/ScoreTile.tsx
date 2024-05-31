@@ -85,7 +85,7 @@ export function ScoreTile({
   };
 
   useEffect(() => {
-    console.log("useEffect", width, height, indicatorWidth);
+    // console.log("useEffect", width, height, indicatorWidth);
     const graphRadius = calculateGraphRadius(width, height);
     const circleLayerSize = calculateCircleLayerSize(
       graphRadius,
@@ -97,7 +97,7 @@ export function ScoreTile({
   }, [height, width, indicatorWidth]);
 
   const onResize = (width: number, height: number) => {
-    console.log("onResize", width, height);
+    // console.log("onResize", width, height);
     setWidth(width - (graphMargin.left + graphMargin.right));
     setHeight(height - (graphMargin.top + graphMargin.bottom));
   };
