@@ -59,6 +59,7 @@ export const loader: IndexRouteObject["loader"] = async () => {
 
     return json(data, { status: 200 });
   } catch (error) {
+    console.error(error);
     if (error instanceof Error)
       return json({ error: error.message }, { status: 500 });
     else return json({ error: "An error occurred" }, { status: 500 });
