@@ -19,6 +19,7 @@ jobs:
       - run: yarn build --outDir _site --mode preview
         env:
           VITE_PREFIX_PATH: "/oc-12"
+          VITE_USER_ID: 12
 
       - name: Fix permissions
         run: |
