@@ -16,10 +16,9 @@ jobs:
           node-version: '20'
 
       - run: yarn install
-      - run: yarn build --outDir _site
+      - run: yarn build --outDir _site --mode preview
         env:
-          DEMO_PREFIX: "/oc-12"
-          NODE_ENV: "demo"
+          VITE_PREFIX_PATH: "/oc-12"
 
       - name: Fix permissions
         run: |
