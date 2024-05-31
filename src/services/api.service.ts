@@ -27,7 +27,9 @@ export class ApiService {
       return data["activities"] as Activity[];
     }
 
-    return this.fetch(`${this.apiUrl}/user/${userId}/activity`);
+    const result = await this.fetch(`${this.apiUrl}/user/${userId}/activity`);
+
+    return result.data.sessions;
   }
 
   public static async getPerformance(userId: number): Promise<Performance> {
@@ -36,7 +38,11 @@ export class ApiService {
       return data["performance"] as Performance;
     }
 
-    return this.fetch(`${this.apiUrl}/user/${userId}/performance`);
+    const result = await this.fetch(
+      `${this.apiUrl}/user/${userId}/performance`,
+    );
+
+    return result.data;
   }
 
   public static async getSessions(userId: number): Promise<Session[]> {
@@ -45,7 +51,11 @@ export class ApiService {
       return data["sessions"] as Session[];
     }
 
-    return this.fetch(`${this.apiUrl}/user/${userId}/average-sessions`);
+    const result = await this.fetch(
+      `${this.apiUrl}/user/${userId}/average-sessions`,
+    );
+
+    return result.data.sessions;
   }
 
   public static async getUser(userId: number): Promise<User> {
@@ -59,7 +69,9 @@ export class ApiService {
       } as User;
     }
 
-    return this.fetch(`${this.apiUrl}/user/${userId}`);
+    const result = await this.fetch(`${this.apiUrl}/user/${userId}`);
+
+    return result.data;
   }
 
   private static async fetch(url: string) {
